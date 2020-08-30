@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RxClient{
     val apiHost : RxApiServer by lazy {
         Retrofit.Builder()
-            .baseUrl("https://www.mocky.io/v3/")
+            .baseUrl("https://raw.githubusercontent.com/manimaran96/E-ComCart/master/")
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(RxApiServer::class.java)

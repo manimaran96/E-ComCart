@@ -2,12 +2,111 @@
   "products": [
     {
       "id": "101",
-      "name": "Airplane Toy",
-      "image": "https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
+      "name": "Cat Toy",
+      "image": "https://homepages.cae.wisc.edu/~ece533/images/cat.png",
       "description": "Test description",
       "quantity": 1,
       "price": "₹1,343",
       "special": "₹1,249"
+    },
+    {
+      "id": "102",
+      "name": "Watch Toy",
+      "image": "https://homepages.cae.wisc.edu/~ece533/images/watch.png",
+      "description": "Test description",
+      "quantity": 1,
+      "price": "₹1,123",
+      "special": "₹1,049"
+    },
+    {
+      "id": "103",
+      "name": "Boat Toy",
+      "image": "https://homepages.cae.wisc.edu/~ece533/images/boat.png",
+      "description": "Test description",
+      "quantity": 1,
+      "price": "₹1,643",
+      "special": "₹1,449"
+    },
+    {
+      "id": "104",
+      "name": "Fruits",
+      "image": "https://homepages.cae.wisc.edu/~ece533/images/fruits.png",
+      "description": "Test description",
+      "quantity": 1,
+      "price": "₹2,343",
+      "special": "₹1,999"
+    },
+    {
+      "id": "105",
+      "name": "Frymire",
+      "image": "https://homepages.cae.wisc.edu/~ece533/images/frymire.png",
+      "description": "Test description",
+      "quantity": 1,
+      "price": "₹1,523",
+      "special": "₹1,349"
+    },
+    {
+      "id": "106",
+      "name": "Pool Game",
+      "image": "https://homepages.cae.wisc.edu/~ece533/images/pool.png",
+      "description": "Test description",
+      "quantity": 1,
+      "price": "₹1,623",
+      "special": "₹1,329"
+    },
+    {
+      "id": "107",
+      "name": "Airplane Toy",
+      "image": "https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
+      "description": "Test description",
+      "quantity": 1,
+      "price": "₹3,573",
+      "special": "₹3,299"
+    },
+    {
+      "id": "108",
+      "name": "Gold Hill Art",
+      "image": "https://homepages.cae.wisc.edu/~ece533/images/goldhill.png",
+      "description": "Test description",
+      "quantity": 1,
+      "price": "₹2,443",
+      "special": "₹2,349"
+    },
+    {
+      "id": "109",
+      "name": "Girl Art",
+      "image": "https://homepages.cae.wisc.edu/~ece533/images/girl.png",
+      "description": "Test description",
+      "quantity": 1,
+      "price": "₹642",
+      "special": "₹549"
+    },
+    {
+      "id": "110",
+      "name": "Tul",
+      "image": "https://homepages.cae.wisc.edu/~ece533/images/tulips.png",
+      "description": "Test description",
+      "quantity": 1,
+      "price": "₹3,749",
+      "special": "₹3,549"
+    },
+    {
+      "id": "111",
+      "name": "Peppers Vegitable",
+      "image": "https://homepages.cae.wisc.edu/~ece533/images/peppers.png",
+      "description": "Test description",
+      "quantity": 1,
+      "price": "₹8,456",
+      "special": "₹8,199"
+    },
+    {
+      "id": "112",
+      "name": "Baboon Toy",
+      "image": "https://homepages.cae.wisc.edu/~ece533/images/baboon.png",
+      "description": "Test description",
+      "quantity": 1,
+      "price": "₹9,999",
+      "special": "₹8,599"
     }
   ]
 }
