@@ -18,9 +18,9 @@ Sample & Simple E-Commerce shopping cart application.
 |:-:|:-:|:-:|:-:|
 | ![First](/files/img/1.jpg?raw=true) | ![Sec](/files/img/2.jpg?raw=true) | ![Third](/files/img/3.jpg?raw=true) | ![Fourth](/files/img/4.jpg?raw=true) |
 
-| Cart | Search | Empty cart |
-|:-:|:-:|:-:|
-| ![Fifth](/files/img/5.jpg?raw=true) | ![Sixth](/files/img/6.jpg?raw=true) | ![Seventh](/files/img/7.jpg?raw=true) |
+| Cart | Search | Empty cart | No Results |
+|:-:|:-:|:-:|:-:|
+| ![Fifth](/files/img/5.jpg?raw=true) | ![Sixth](/files/img/6.jpg?raw=true) | ![Seventh](/files/img/7.jpg?raw=true) | ![Eighth](/files/img/8.jpg?raw=true) |
 
 ## Used Technologies
 - Kotlin
