@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+        <import type="com.manimaran.ecomcart.utils.DataBindingUtils"/>
+
+        <variable
+            name="showLoading"
+            type="Boolean" />
+
+        <variable
+            name="showEmpty"
+            type="Boolean" />
+
+        <variable
+            name="cartTotal"
+            type="Integer" />
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.HomeActivity">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/layoutToolBar"
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:background="@color/white"
+            app:cardElevation="@dimen/title_bar_card_elevation"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/title_padding"
+                android:paddingStart="@dimen/title_padding"
+                android:paddingEnd="@dimen/title_padding"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/layoutCart"
+                    android:text="@string/products"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/title_text" />
+
+                <RelativeLayout
+                    android:id="@+id/layoutCart"
+                    android:layout_width="@dimen/btn_cart_icon"
+                    android:layout_height="@dimen/btn_cart_icon"
+                    android:layout_alignParentEnd="true">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/btnCart"
+                        android:layout_width="@dimen/action_width"
+                        android:layout_height="@dimen/action_height"
+                        android:layout_centerInParent="true"
+                        app:srcCompat="@drawable/ic_cart" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtCartCount"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_cart_count"
+                        android:padding="@dimen/cart_count_padding"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:visibility="@{cartTotal>0 ? View.VISIBLE : View.GONE}"
+                        android:text="@{DataBindingUtils.INSTANCE.getCartCount(cartTotal)}"
+                        tools:ignore="RelativeOverlap" />
+
+                </RelativeLayout>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/search_bar"
+                    android:layout_below="@+id/txtTitle"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/search_margin_top"
+                    android:layout_marginBottom="@dimen/search_margin_bottom"
+                    android:paddingStart="@dimen/search_margin_top"
+                    android:paddingEnd="@dimen/search_margin_top"
+                    android:background="@drawable/bg_border"
+                    android:hint="@string/search_hint"
+                    android:maxLines="1"
+                    android:saveEnabled="false"
+                    android:singleLine="true" />
+
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="true"
+            android:paddingTop="@dimen/recycler_padding_top"
+            android:layout_below="@+id/layoutToolBar"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            android:paddingStart="@dimen/recycler_padding_side"
+            android:nestedScrollingEnabled="true"
+            android:paddingEnd="@dimen/recycler_padding_side"
+            tools:listitem="@layout/item_product"
+            tools:ignore="UnusedAttribute" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:text="@string/no_results_found"
+            android:textSize="@dimen/text_x_normal"
+            android:textStyle="bold"
+            android:layout_below="@+id/layoutToolBar"
+            android:gravity="center"
+            android:visibility="@{showEmpty? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieNoResult"
+            android:layout_width="@dimen/lottie_icon"
+            android:layout_height="@dimen/lottie_icon"
+            android:tint="@color/white"
+            android:visibility="@{showLoading? View.VISIBLE : View.GONE}"
+            android:layout_centerInParent="true"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading_cart"
+            app:lottie_speed="2" />
+
+    </RelativeLayout>
+
+</layout>

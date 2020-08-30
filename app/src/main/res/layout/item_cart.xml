@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.manimaran.ecomcart.utils.DataBindingUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="product"
+            type="com.manimaran.ecomcart.databases.entities.Product" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/my_cart_height"
+        android:layout_marginStart="@dimen/item_margin_start"
+        android:layout_marginEnd="@dimen/item_margin_end"
+        android:layout_marginBottom="@dimen/item_margin_bottom"
+        android:background="@drawable/bg_border"
+        tools:context=".ui.home.HomeActivity">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgProduct"
+            android:layout_width="@dimen/my_cart_height"
+            android:layout_height="@dimen/my_cart_height"
+            android:background="@drawable/bg_border"
+            android:padding="@dimen/my_cart_img_padding"
+            android:scaleType="centerCrop"
+            android:src="@drawable/loading_image" />
+
+
+        <RelativeLayout
+            android:id="@+id/layoutInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/search_margin_top"
+            android:layout_marginEnd="@dimen/search_margin_top"
+            android:layout_toEndOf="@+id/imgProduct">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="@dimen/item_margin_start"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@{product.name}"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_normal"
+                android:textStyle="bold"
+                tools:ignore="RtlCompat" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtName"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/my_cart_price_top_margin"
+                android:text="@{DataBindingUtils.INSTANCE.getCartProductPrice(product.specialPrice, product.count)}"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_small" />
+
+            <RelativeLayout
+                android:id="@+id/layoutCartAction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtPrice"
+                android:layout_marginTop="@dimen/item_margin_start"
+                android:orientation="horizontal"
+                android:visibility="@{product.count > 0? View.VISIBLE : View.GONE}">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btnMinus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/txtCount"
+                    android:background="@drawable/bg_cart"
+                    android:paddingStart="@dimen/cart_change_padding_top"
+                    android:paddingTop="@dimen/card_change_padding_side"
+                    android:paddingEnd="@dimen/cart_change_padding_top"
+                    android:paddingBottom="@dimen/card_change_padding_side"
+                    android:text="@string/minus"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/text_x_normal"
+                    tools:ignore="RelativeOverlap" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:paddingStart="@dimen/cart_item_count_padding"
+                    android:paddingEnd="@dimen/cart_item_count_padding"
+                    android:text="@{String.valueOf(product.count)}"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/text_x_normal"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btnPlus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/txtCount"
+                    android:background="@drawable/bg_cart"
+                    android:paddingStart="@dimen/cart_change_padding_top"
+                    android:paddingTop="@dimen/card_change_padding_side"
+                    android:paddingEnd="@dimen/cart_change_padding_top"
+                    android:paddingBottom="@dimen/card_change_padding_side"
+                    android:text="@string/plus"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/text_x_normal" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>
+

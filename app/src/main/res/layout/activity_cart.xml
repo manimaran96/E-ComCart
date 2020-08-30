@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="showEmpty"
+            type="Boolean" />
+
+        <variable
+            name="totalItem"
+            type="String" />
+
+        <variable
+            name="totalCost"
+            type="String" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.HomeActivity">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/layoutToolBar"
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:background="@color/white"
+            app:cardElevation="@dimen/title_bar_card_elevation"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/title_padding"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/btnCancel"
+                    android:text="@string/my_cart"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/title_text" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnCancel"
+                    android:layout_width="@dimen/action_width"
+                    android:layout_height="@dimen/action_height"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    app:srcCompat="@drawable/ic_close" />
+
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_below="@+id/layoutToolBar"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="true"
+                android:paddingTop="@dimen/recycler_padding_top"
+                android:layout_above="@+id/layoutTotalCost"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="1"
+                android:paddingStart="@dimen/recycler_padding_side"
+                android:paddingEnd="@dimen/recycler_padding_side"
+                tools:listitem="@layout/item_cart" />
+
+
+            <RelativeLayout
+                android:id="@+id/layoutTotalCost"
+                android:layout_width="match_parent"
+                android:padding="@dimen/search_margin_top"
+                android:visibility="@{showEmpty? View.GONE : View.VISIBLE}"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/bg_border"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/btnCheckOut"
+                    android:text="@{totalItem}"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_normal" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_toStartOf="@+id/btnCheckOut"
+                    android:text="@{totalCost}"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/txtItem"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_large" />
+
+
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCheckOut"
+                    android:text="@string/checkout"
+                    android:layout_marginStart="@dimen/recycler_padding_side"
+                    android:layout_marginEnd="@dimen/recycler_padding_side"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:visibility="@{showEmpty? View.VISIBLE : View.GONE}"
+            android:layout_below="@id/layoutToolBar"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieNoResult"
+                android:layout_width="@dimen/lottie_icon"
+                android:layout_height="@dimen/lottie_icon"
+                android:tint="@color/white"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/empty_cart"
+                app:lottie_speed="2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_item_in_cart"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:padding="@dimen/recycler_padding_top"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShopNow"
+                android:text="@string/shop_now"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+
+</layout>

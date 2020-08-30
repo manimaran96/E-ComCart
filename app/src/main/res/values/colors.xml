@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F5DD8</color>
+    <color name="colorPrimaryDark">#2343C1</color>
+    <color name="colorAccent">#3958D8</color>
+    <color name="text_color">#1F1F1F</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray_border">#A2A2A2</color>
+    <color name="skeleton">#ECECEC</color>
+    <color name="search_hint">#FDD835</color>
+</resources>

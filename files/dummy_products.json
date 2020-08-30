@@ -1,0 +1,13 @@
+{
+  "products": [
+    {
+      "id": "101",
+      "name": "Airplane Toy",
+      "image": "https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
+      "description": "Test description",
+      "quantity": 1,
+      "price": "₹1,343",
+      "special": "₹1,249"
+    }
+  ]
+}
